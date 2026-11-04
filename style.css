@@ -1,0 +1,114 @@
+@font-face {
+  font-family: "Inter Tight";
+  src: url("fonts/inter-tight-600.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light;
+  --paper: #eeece6;
+  --ink: #1a1c1a;
+  --muted: #535853;
+  --accent: #a93c27;
+  --margin: clamp(1rem, 3.6cqw, 4rem);
+  --gallery-gap: clamp(.8rem, 1.6cqw, 1.6rem);
+  font: 600 17px / 21pt "Inter Tight", Arial, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { max-width: 560px; margin: 0 auto; container-type: inline-size; }
+a { color: inherit; text-underline-offset: .25em; }
+a:hover { color: var(--accent); }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+img { display: block; width: 100%; height: auto; }
+p, h1, h2, h3, figure { margin: 0; }
+.skip { position: absolute; left: 1rem; top: 1rem; z-index: 3; padding: .7rem; background: var(--paper); transform: translateY(-200%); }
+.skip:focus { transform: none; }
+.wrap, .hero { margin-inline: var(--margin); }
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: .45rem 1rem;
+  flex-wrap: wrap;
+  padding: .8rem var(--margin);
+}
+.site-header a { text-decoration: none; }
+nav { display: flex; flex-wrap: wrap; gap: .5rem clamp(.8rem, 3cqw, 2.5rem); }
+.site-header, .site-footer a { font-size: .91rem; }
+.cover { width: auto; max-width: 100%; margin-inline: auto; }
+.hero-content { margin-top: 1rem; }
+.hero-content h1 { font-size: 2rem; line-height: 1.15; letter-spacing: -.035em; }
+.hero-content p { margin-top: .3rem; color: var(--muted); }
+.section { padding-block: clamp(1.9rem, 4.2cqw, 4.4rem); }
+.editorial { display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(.65rem, 4cqw, 4rem); }
+h2 { font-size: 1.41rem; letter-spacing: -.025em; }
+h3, .section-subtitle { font-size: 1.18rem; letter-spacing: -.018em; }
+.section-subtitle { color: var(--muted); }
+.lead, .technical-row p { max-width: 69ch; }
+.gallery { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--gallery-gap); margin-top: clamp(1.2rem, 3cqw, 2.6rem); }
+.sculpture-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.gallery a { display: block; overflow: hidden; background: #1d282a; }
+.gallery img { aspect-ratio: 1.85; object-fit: cover; transform: scale(1.09); }
+.gallery .reference-crop {
+  position: relative;
+  aspect-ratio: var(--crop-ratio);
+}
+.gallery .reference-crop img {
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: var(--crop-width);
+  height: auto;
+  aspect-ratio: auto;
+  transform: translate(var(--crop-x), var(--crop-y));
+}
+.crop-profili {
+  --crop-ratio: 456 / 662;
+  --crop-width: 149.12%;
+  --crop-x: -14.71%;
+  --crop-y: -27.06%;
+}
+.crop-paesaggio {
+  --crop-ratio: 456 / 662;
+  --crop-width: 158.77%;
+  --crop-x: -18.23%;
+  --crop-y: -27.91%;
+}
+.crop-esplorazione {
+  --crop-ratio: 790 / 506;
+  --crop-width: 120.71%;
+  --crop-x: -16.74%;
+  --crop-y: -.72%;
+}
+.crop-nebbia {
+  --crop-ratio: 789 / 504;
+  --crop-width: 120.82%;
+  --crop-x: -3.78%;
+  --crop-y: 0%;
+}
+.demo-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: clamp(1.2rem, 3cqw, 2.6rem);
+  background: #1d282a;
+}
+.scene-gallery .scene-detail img { aspect-ratio: 790 / 506; transform: none; }
+.scene-detail-laterale img { object-position: 61% center; }
+.scene-detail-frontale img { object-position: 48% center; }
+.blueprint-gallery img { aspect-ratio: 1.88; object-fit: contain; transform: scale(1.06); transform-origin: 44% 50%; }
+.technical-row + .technical-row { margin-top: 1.4rem; }
+.technical-row h3 { margin-bottom: .3rem; }
+.technical-row p + p { margin-top: .65rem; }
+.site-footer { display: flex; justify-content: space-between; align-items: end; gap: 1rem; padding-block: 1.45rem 2.15rem; }
+.status { color: var(--muted); font-size: .88rem; }
+.signature { font-size: 1.18rem; }
+.site-footer a { white-space: nowrap; }
+@media (max-width: 380px) {
+  nav { font-size: .85rem; gap: .6rem; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
